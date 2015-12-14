@@ -22,7 +22,6 @@
 					return flag;
 				}
 				/* 横竖屏start */
-
 			function orientationChange() {
 				//alert(window.orientation)
 				switch (window.orientation) {
@@ -219,34 +218,73 @@
 			}
 			.ios {
 				position: absolute;
-				top: 56%;
+				top: 23%;
 				left: 33%;
 				width: 7%;
 				cursor: pointer;
 			}
 			.andriod {
 				position: absolute;
-				top: 63%;
+				top: 30%;
 				left: 33%;
 				width: 7%;
 				cursor: pointer;
 			}
 			.shutiao {
 				position: absolute;
-				top: 56%;
+				top: 23%;
 				left: 41%;
 				width: .15%;
 			}
 			.ewm {
 				position: absolute;
-				top: 56%;
+				top: 23%;
 				left: 42%;
 				width: 6%;
 			}
 			.shsd {
 				position: absolute;
+				top: 36%;
 				left: 33%;
-				top: 70%;
+				width: 15%;
+			}
+			.hengxian{
+				position: absolute;
+				top: 42%;
+				left: 27%;
+				width: 25%;
+			}
+			.ios-us {
+				position: absolute;
+				top: 48%;
+				left: 33%;
+				width: 7%;
+				cursor: pointer;
+			}
+			.andriod-us {
+				position: absolute;
+				top: 55%;
+				left: 33%;
+				width: 7%;
+				cursor: pointer;
+			}
+			.shutiao-us {
+				position: absolute;
+				top: 48%;
+				left: 41%;
+				width: .15%;
+			}
+			.ewm-us {
+				position: absolute;
+				top: 48%;
+				left: 42%;
+				width: 6%;
+				cursor: pointer;
+			}
+			.shsd-us {
+				position: absolute;
+				top: 62%;
+				left: 33%;
 				width: 15%;
 			}
 			.bg {
@@ -336,32 +374,69 @@
 				}
 				.ios {
 					position: absolute;
-					top: 344px;
+					top: 140px;
 					left: 365px;
 					width: 77px
 				}
 				.andriod {
 					position: absolute;
-					top: 389px;
+					top: 185px;
 					left: 365px;
 					width: 77px;
 				}
 				.shutiao {
 					position: absolute;
-					top: 344px;
+					top: 140px;
 					left: 450px;
 					height: 72px;
 				}
 				.ewm {
 					position: absolute;
-					top: 344px;
+					top: 140px;
 					left: 465px;
 					width: 68px;
 				}
 				.shsd {
 					position: absolute;
+					top: 226px;
 					left: 365px;
-					top: 430px;
+					width: 170px;
+				}
+				.hengxian{
+					position: absolute;
+					top: 262px;
+					left: 335px;
+					width: 225px;
+				}
+				.ios-us {
+					position: absolute;
+					top: 294px;
+					left: 365px;
+					width: 77px;
+				}
+				.andriod-us {
+					position: absolute;
+					top: 339px;
+					left: 365px;
+					width: 77px;
+				}
+				.shutiao-us {
+					position: absolute;
+					top: 294px;
+					left: 450px;
+					height: 72px;
+				}
+				.ewm-us {
+					position: absolute;
+					top: 294px;
+					left: 465px;
+					width: 68px;
+					cursor: pointer;
+				}
+				.shsd-us {
+					position: absolute;
+					top: 380px;
+					left: 365px;
 					width: 170px;
 				}
 				.bg {
@@ -378,7 +453,7 @@
 	<body id="body">
 		<div class="zhongjian" id="zhongjian">
 			<img src="img/bg.png" class="bg" />
-			<img src="img/wsm.png" class="wsm" />
+			<!-- <img src="img/wsm.png" class="wsm" /> -->
 			<img src="img/sj.png" class="sj" />
 			<img src="img/dt.png" class="dt" id="ditu" />
 			<img src="img/ios.png" class="ios" onclick="xiazai(4,'https://itunes.apple.com/cn/app/mo-ca/id818983195')" />
@@ -386,6 +461,12 @@
 			<img src="img/gun_03.png" class="shutiao" />
 			<img src="img/shsd.png" class="shsd" />
 			<img src="img/ewm.png" class="ewm" />
+			<img src="img/hengxian.png" class="hengxian" />
+			<img src="img/ios.png" class="ios-us" onclick="toUsWeb()" />
+			<img src="img/andriod.png" class="andriod-us" onclick="toUsWeb()"/>
+			<img src="img/gun_03.png" class="shutiao-us" />
+			<img src="img/shsd-us.png" class="shsd-us" />
+			<img src="img/ewm-us.png" class="ewm-us" onclick="toUsWeb()" />
 			<div class="center" id="center">
 				<div class="kaiguan" id="kaiguan"></div>
 				<iframe name="iFrame" id="iFrame"></iframe>
@@ -403,11 +484,9 @@
 	<script>
 		var zhongjian = document.getElementById("zhongjian");
 		var center = document.getElementById("center");
-
 		function closeLeft2() {
 			center.style.display = "none";
 		}
-
 		function shows(url) {
 			center.style.display = "block";
 			document.getElementById("iFrame").src = url;
@@ -422,7 +501,6 @@
 	</script>
 	<script>
 		var xmlHttp;
-
 		function showUser(url, stateChanged) {
 			xmlHttp = GetXmlHttpObject();
 			if (xmlHttp == null) {
@@ -433,7 +511,6 @@
 			xmlHttp.open("GET", url, true);
 			xmlHttp.send(null);
 		}
-
 		function GetXmlHttpObject() {
 			var xmlHttp = null;
 			try {
@@ -449,12 +526,13 @@
 			}
 			return xmlHttp;
 		}
-
 		showUser("http://api.himoca.com/moca/Moca/Load?type=1", "");
-
 		function xiazai(type , url) {
 			showUser("http://api.himoca.com/moca/Moca/Load?type="+type, "");
 			window.open(url) ;
+		}
+		function toUsWeb() { 
+			location.href = "http://us.himoca.com";
 		}
 	</script>
 
