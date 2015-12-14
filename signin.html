@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="UTF-8">
+  <title>摩擦 - 登录</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+  $(function () {
+
+    $('#input-username').on('keypress', function (e) {
+      numberKeypress(e);
+    }).on('blur', function (e) {
+      numberBlur(e);
+    })
+
+
+    $('#form-signin').on('submit', function (e) {
+      e.preventDefault();
+      var formValues = $(this).serialize(),
+          formAction = $(this).attr('action');
+      $.post(formAction, formValues, function (d) {
+        // result 1 成功， -2 账号不正确，-3 密码不正确，-4 参数无效， -27 此账号已被封
+        console.log(d);
+        var hasError = false,
+            $alert = $('.alert');
+        $('[required]').each(function (i, v) {
+          if(this.value === '') hasError = true;
+        })
+        if(hasError) return;
+        if(d.result === -2 || d.result === -3|| d.result === -4) {
+          $alert.html('账号或密码不正确').removeClass('hide');
+        } else if (d.result === -27) {
+          $alert.html('此账号已被封').removeClass('hide');
+        } else if (d.result === 1) {
+          location.href = 'http://app.himoca.com:8080/moca/Exchange/Redeem?session_key=' + d.data.session_key;
+        }
+
+        // this.submit();
+      }, 'json');
+    });
+
+  })
+  </script>
+</head>
+<body id="sign-in">
+<div class="page-container">
+  <form id="form-signin" class="container" action="http://app.himoca.com:8080/moca/Exchange/Login" method="post">
+    <div class="logo-container"><a href="http://www.himoca.com" title="回到摩察首页"><img src="img/moca-logo.png" alt="" width="150" height="150"></a></div>
+    <div class="form-group">
+      <label class="sr-only" for="input-username">手机号</label>
+      <input class="form-control input-lg" id="input-username" name="user_name" type="tel" placeholder="手机号" autofocus maxlength="11" value="" required>
+    </div>
+    <div class="form-group">
+      <label class="sr-only" for="input-password">密码</label>
+      <input class="form-control input-lg" id="input-password" name="password" type="password" placeholder="密码" value="" required>
+    </div>
+    <div class="alert alert-danger hide"></div>
+    <button class="btn btn-primary btn-block btn-lg" type="submit">登录</button>
+  </form>
+</div>
+
+</body>
+</html>

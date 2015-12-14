@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+<meta charset="utf-8">
+<title>摩擦</title>
+<meta name="viewport" content="initial-scale=1, max-scale=1, user-scalable=no">
+<style>
+body {
+  margin: 0;
+  height: 790px;
+  background: url(img/bg.png) no-repeat 50% 0;
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5) {
+  body {
+    background-image: url(img/bg@2x.png);
+    background-size: 480px 780px;
+  }
+}
+
+.download-container {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #fff;
+  background-color: rgba(255,255,255,.8);
+  text-align: center;
+}
+
+.download-btn {
+  position: absolute;
+  width: 165px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  text-decoration: none;
+  line-height: 38px;
+  height: 38px;
+  color: #fff;
+  background: #307de7;
+  border-radius: 9999px;
+  letter-spacing: 1px;
+  font-size: 17px;
+}
+
+.download-btn:active {
+  background: #206bd4;
+}
+
+
+</style>
+</head>
+<body>
+<div class="download-container">
+  <a class="download-btn" href="http://up1.himoca.com/apk/version/moca1.7.0_moca.apk" download="moca_1.6.1_moca.apk" >下载应用</a>
+</div>
+<script>
+  document.querySelector('a').addEventLilstener('touchstart',function() {}, false);
+</script>
+</body>
+</html>

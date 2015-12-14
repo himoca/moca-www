@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>摩擦官网</title>
+		<meta name="keywords" content="摩擦,社交,APP,聊天,陌生交友">
+		<meta name="description" content="摩擦-随时随地，想聊就聊！">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<link rel="icon" href="img/ic.jpg" type="image/jpg" />
+		<script type="text/javascript">
+			 /* 横竖屏start */
+			function orientationChange() {
+				switch (window.orientation) {
+					case -90:
+						window.location.href = "index.html";
+						break;
+					case 90:
+						window.location.href = "index.html";
+						break;
+				}
+			}
+			orientationChange();
+			window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", orientationChange, false);
+			/* 横竖屏end*/
+			var phoneWidth = parseInt(window.screen.width);
+			var phoneScale = phoneWidth / 640;
+			var ua = navigator.userAgent;
+			if (/Android (\d+\.\d+)/.test(ua)) {
+				var version = parseFloat(RegExp.$1);
+				if (version > 2.3) {
+					document.write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">')
+				} else {
+					document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">')
+				}
+			} else {
+				document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">')
+			}
+		</script>
+	</head>
+	<style>
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+			margin: 0px;
+			padding: 0px;
+			border: 0px;
+			overflow: hidden;
+			font-family: Microsoft YaHei;
+		}
+		.center {
+			width: 640px;
+			height: 100%;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			z-index: 2;
+			background-color: white;
+			-webkit-transition: -webkit-transform 0.3s ease-in-out;
+		}
+		.center_img {
+			width: 100%;
+		}
+		.center_androis {
+			margin-top: 10px;
+			width: 170px;
+			margin-left: 135px;
+		}
+		.center_zj {
+			height: 48px;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+		.center_ios {
+			width: 170px;
+		}
+		.center_sssd {
+			margin-top: 10px;
+			margin-left: 175px;
+			width: 290px;
+		}
+		.center_di {
+			width: 230px;
+			left: 205px;
+			top: 95%;
+			position: absolute;
+		}
+		.menu {
+			position: absolute;
+			left: 20px;
+			top: 56px;
+		}
+		.left {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			width: 540px;
+			height: 100%;
+			background-color: #0b5d8f;
+		}
+		.left div {
+			height: 89px;
+			width: 540px;
+			border-bottom: 1px #cccccc groove;
+		}
+		.left .left_download {
+			position: absolute;
+			top: 274px;
+			height: 570px;
+			width: 540px;
+			background-color: #0b5d8f;
+			border-bottom: none;
+			-webkit-transition: -webkit-transform 0.5s ease-in-out;
+		}
+		.left_download div {
+			border: none;
+			margin-top: 90px;
+			width: 268px;
+			height: 55px;
+			float: left;
+		}
+		.logo {
+			width: 340px;
+			margin-left: 20px;
+			margin-top: 13px;
+		}
+		.shouye {
+			position: absolute;
+			margin-top: 0.8em;
+			margin-left: 1em;
+			font-size: 2em;
+			color: white;
+		}
+		.lxwm {
+			position: absolute;
+			margin-top: 0.8em;
+			margin-left: 1em;
+			font-size: 2em;
+			color: white;
+		}
+		.lxwm_jt {
+			position: absolute;
+			top: 215px;
+			right: 27px;
+			-webkit-transform: rotateX(180deg);
+		}
+		.left_download img {
+			width: 170px;
+			height: 55px;
+		}
+		.left_contact .lxwm_div {
+			height: 70px;
+			font-size: 1.3em;
+		}
+		.lxwm_div img {
+			width: 45px;
+			margin-left: 30px;
+			float: left;
+		}
+		.left_contact .lxwm_div_1 {
+			padding-top: 18px;
+			height: 52px;
+		}
+		.left_contact .lxwm_div_2 {
+			padding-top: 10px;
+			height: 60px;
+		}
+		.lxwm_span_0 {
+			font-size: 1em;
+			margin-left: 30px;
+			margin-top: 13px;
+			float: left;
+			color: white;
+		}
+		.lxwm_span {
+			float: left;
+			margin-left: 10px;
+			color: white;
+		}
+		.left .lxwm_all {
+			border: none;
+		}
+	</style>
+
+	<body>
+		<div class="center" id="center" onclick="close_left()">
+			<img src="shouji/bg_01.png" class="center_img" />
+			<img src="shouji/xljl_04.jpg" class="center_sssd" />
+			<img src="shouji/sy_az_06.png" class="center_androis" onclick="javascript:window.location.href='http://himoca.com/apk/version/moca1.7.0_moca.apk'" />
+			<img src="shouji/sy_gun_09.jpg" class="center_zj" />
+			<img src="shouji/sy_ip_04.png" class="center_ios" onclick="javascript:window.open('https://itunes.apple.com/cn/app/mo-ca/id818983195')" />
+			
+			<img src="shouji/ban_04.png" class="center_di" />
+			<img src="shouji/anniu_03.png" class="menu" onclick="show_left()" />
+		</div>
+		<div class="left">
+			<div class="left_head" style="background-color: #054873;">
+				<img src="shouji/logo_03.png" class="logo" />
+			</div>
+			<div class="left_index" onclick="close_left()">
+				<span class="shouye">首页</span>
+			</div>
+			<div class="left_contact">
+				<div onclick="show_lxwm()" style="border: none;"><span class="lxwm">联系我们</span>
+					<img src="shouji/btn_07.png" class="lxwm_jt" id="lxwm_jt" />
+				</div>
+				<div id="lxwm_all" class="lxwm_all">
+					<div class="lxwm_div">
+						<span class="lxwm_span_0">北京摩擦科技有限公司<br />
+					<span style="font-size: 0.8em;color: white;">Beijing Moca Technology Co.Ltd.</span>
+						</span>
+					</div>
+					<div class="lxwm_div">
+						<span class="lxwm_span_0">地址:北京市朝阳区天辰东路国家会议中心北区四层<br />
+					<span style="font-size: 0.8em;color: white;">Add:4F,North District,China National Convention Center</span>
+						</span>
+					</div>
+					<div class="lxwm_div lxwm_div_2">
+						<span class="lxwm_span_0">邮编：100105</span>
+					</div>
+					<div class="lxwm_div lxwm_div_2">
+						<img src="img/lianxi/bd_13.png" />
+						<span class="lxwm_span">商务合作<br/><span >bd@himoca.com </span></span>
+					</div>
+					<div class="lxwm_div lxwm_div_2">
+						<img src="img/lianxi/hr_18.png" />
+						<span class="lxwm_span">招聘邮箱<br/><span >hr@himoca.com  </span></span>
+					</div>
+					<div class="lxwm_div lxwm_div_2">
+						<img src="img/lianxi/kf_28.png" />
+						<span class="lxwm_span">联系客服<br/><span >邮箱:kf@himoca.com &nbsp;电话:028-65789575  </span></span>
+					</div>
+					<div class="lxwm_div lxwm_div_2">
+						<img src="img/lianxi/xl_34.png" />
+						<span class="lxwm_span">官方微博<br/><span style="cursor: pointer;" onclick="javascript:window.open('http://weibo.com/leozhuxian')">@摩擦moca</span></span>
+					</div>
+					<div class="lxwm_div lxwm_div_2">
+						<img src="img/lianxi/wx_42.png" />
+						<span class="lxwm_span">官方微信<br/>
+						<span>himoca</span>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div class="left_download" id="left_download">
+				<div style="border-right: 1px #cccccc groove;">
+					<img src="shouji/ip_27.png" style="margin-left: 25px;" onclick="javascript:window.open('https://itunes.apple.com/cn/app/mo-ca/id818983195')" />
+				</div>
+				<div>
+					<img src="shouji/az_31.png" style="margin-left: 70px;" onclick="javascript:window.location.href='http://himoca.com/apk/version/moca1.7.0_moca.apk'" />
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var center = document.getElementById("center");
+		var lxwm_jt = document.getElementById("lxwm_jt");
+		var lxwm = document.getElementById("lxwm_all");
+		var left_download = document.getElementById("left_download");
+		var isOpenLxwm = false;
+		var isOpenLeft = false;
+
+		function show_left() {
+			event.preventDefault();
+			event.stopPropagation();
+			if (!isOpenLeft) {
+				isOpenLeft = true;
+				center.style.webkitTransform = "translate3d(540px, 0, 0)";
+			} else {
+				close_left();
+			}
+		}
+
+		function close_left() {
+			isOpenLeft = false;
+			center.style.webkitTransform = "";
+		}
+
+		function show_lxwm() {
+			if (!isOpenLxwm) {
+				isOpenLxwm = true;
+				lxwm_jt.style.webkitTransform = "rotateX(0deg)";
+				left_download.style.webkitTransform = "translate3d(0," + (window.screen.height / phoneScale) * .5 + "px,0)";
+			} else {
+				isOpenLxwm = false;
+				lxwm_jt.style.webkitTransform = "rotateX(180deg)";
+				left_download.style.webkitTransform = "";
+			}
+		}
+	</script>
+
+</html>

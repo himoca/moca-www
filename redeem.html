@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+	<meta charset="UTF-8">
+	<title>摩擦 - 兑换话费</title>
+	<meta name="viewport" content="initial-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/script.js"></script>
+	<script>
+		$(function () {
+			$('#input-redeem-tel').on('keypress', function (e) {
+				numberKeypress(e);
+			}).on('blur', function (e) {
+				numberBlur(e);
+			});
+
+			$('.select-cube-container').on('change', '[type="radio"]', function (e) {
+				$(this).closest('.select-cube-container').find('.select-cube').removeClass('selected');
+				$(this).closest('.select-cube').addClass('selected');
+			})
+
+
+		})
+	</script>
+</head>
+<body>
+<div class="page-container">
+	<div class="navbar">
+		<div class="user-info pull-left">
+			<img class="radius5" src="http://images.himoca.com/avatar/3c/22/94903c3e484c7389_150.jpg" alt="" width="30" height="30">
+			<span>美美</span>
+		</div>
+		<div class="pull-right"><a href="">退出</a></div>
+	</div>
+	<div class="content-block-title"><span class="step-number">1</span> 输入要兑换话费的手机号</div>
+	<div class="content-block">
+		<div class="form-group">
+			<input type="tel" class="form-control" id="input-redeem-tel" placeholder="手机号" autofocus maxlength="11" name="redeem-tel" value="">
+		</div>
+	</div>
+	<div class="content-block-title"><span class="step-number">2</span> 选择要兑换的话费</div>
+	<div class="content-block">
+
+		<div class="alert alert-info"><span class="pull-right">10积分等于1元</span>当前积分：<span id="current-score">0</span></div>
+		<div class="row row-gutter-sm select-cube-container">
+			<div class="col-xs-4">
+				<label class="select-cube">
+					<input type="radio" name="input-redeem-count" value="">
+					<div class="select-cube-inner"><div class="font-size-36">10</div><div>元话费</div></div>
+				</label>
+			</div>
+			<div class="col-xs-4">
+				<label class="select-cube">
+					<input type="radio" name="input-redeem-count" value="">
+					<div class="select-cube-inner"><div class="font-size-36">50</div><div>元话费</div></div>
+				</label>
+			</div>
+			<div class="col-xs-4">
+				<label class="select-cube">
+					<input type="radio" name="input-redeem-count" value="">
+					<div class="select-cube-inner"><div class="font-size-36">100</div><div>元话费</div></div>
+				</label>
+			</div>
+		</div>
+
+	</div>
+	<div class="content-block"><button class="btn btn-primary btn-block" type="button">兑换</button></div>
+</div>
+</body>
+</html>

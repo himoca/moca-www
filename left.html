@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" class="responsive">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<script src="http://dl.lepao.com/lib/jquery-1.8.1.min.js"></script>
+		<script>
+			$(function() {
+				document.addEventListener('touchstart', function() {}, false);
+				$('.details').addClass('collapse');
+				$('.details-content').hide();
+				$('.summary').on('click', function() {
+					var $parent = $(this).closest('.details');
+					$content = $parent.find('.details-content');
+					$parent.toggleClass('collapse');
+					$content.slideToggle(200);
+				});
+			});
+		</script>
+		<style>
+			* {
+				-webkit-tap-highlight-color: transparent;
+				-webkit-touch-callout: none
+			}
+			html.responsive {
+				min-width: 320px;
+				-webkit-text-size-adjust: 100%;
+			}
+			body {
+				margin: 0;
+				color: #333;
+				font: 14px/1.5 "Hiragino Sans GB", "Microsoft Yahei", "SimHei", sans-serif;
+				/*   -webkit-font-smoothing: antialiased; */
+				
+				text-rendering: optimizelegibility;
+				_background-attachment: fixed;
+				_background-image: url(about:blank);
+			}
+			img {
+				border: 0;
+				vertical-align: middle;
+			}
+			a,
+			.link {
+				color: #7ea92a;
+				text-decoration: none;
+				outline: none;
+			}
+			a:hover,
+			a:focus {
+				text-decoration: underline;
+			}
+			.page-container {
+				width: 1000px;
+				min-height: 300px;
+				margin-left: auto;
+				margin-right: auto;
+				*zoom: 1;
+			}
+			.responsive .page-container {
+				width: auto;
+				max-width: 1000px;
+				margin: 20px auto 10px;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			.page-container:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			/*========================================================================
+  details
+========================================================================*/
+			
+			.details {
+				background-color: #fff;
+				border: 1px solid #ddd;
+				border-radius: 4px;
+				margin-bottom: 18px;
+				-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+				box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+				overflow: hidden;
+			}
+			.details .summary {
+				padding: 10px 15px 10px 25px;
+				border-bottom: 1px solid #ddd;
+				border-radius: 3px 3px 0 0;
+				margin-bottom: -1px;
+				/*   color: #7ea92a; */
+				
+				background-color: #fafafa;
+				/*   background: #fafafa url(http://dl.lepao.com/images/grayarrowdown.gif) no-repeat 9px 50%; */
+				
+				cursor: pointer;
+				position: relative;
+				z-index: 1;
+			}
+			.details.collapse .summary {
+				/*   background-image: url(http://dl.lepao.com/images/grayarrow.gif); */
+			}
+			.details .summary:hover {
+				/*   text-decoration: underline; */
+				
+				background-color: #eee;
+			}
+			.details .summary:before {
+				content: "";
+				position: absolute;
+				left: 10px;
+				top: 15px;
+				border-left: 0.4em solid transparent;
+				border-right: 0.4em solid transparent;
+				border-top: 0.7em solid #777;
+			}
+			.details.collapse .summary:before {
+				background-image: none;
+				border-top: 0.4em solid transparent;
+				border-bottom: 0.4em solid transparent;
+				border-left: 0.7em solid #777;
+			}
+			.details .details-content {
+				padding: 15px 15px 15px 25px;
+			}
+			.details-content p {
+				text-indent: 2em;
+			}
+			.details {
+				position: relative;
+				margin-bottom: 10px;
+			}
+			.details .summary {
+				background-image: none;
+				-webkit-transition: background-color 0.2s;
+			}
+			.details .summary:hover {
+				background-color: #fafafa;
+			}
+			.details .summary:active {
+				background-color: #ddd;
+			}
+			.details .summary:before {
+				content: "";
+				position: absolute;
+				left: 10px;
+				top: 15px;
+				border-left: 0.4em solid transparent;
+				border-right: 0.4em solid transparent;
+				border-top: 0.7em solid #777;
+			}
+			.details.collapse .summary:before {
+				background-image: none;
+				border-top: 0.4em solid transparent;
+				border-bottom: 0.4em solid transparent;
+				border-left: 0.7em solid #777;
+			}
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="page-container">
+			<div class="details">
+				<div class="summary">如何正确敲击手环？</div>
+				<div class="details-content">手环正面朝上，手指垂直敲击手环芯片，指示灯正常亮，说明手环可正常使用，如图。
+					<br>
+					<img src="http://dl.lepao.com/images/user_guide_1.png">
+				</div>
+			</div>
+
+			<div class="details">
+				<div class="summary">如何切换到睡眠模式？</div>
+				<div class="details-content">连续快速敲击手环芯片直到振动，看到5盏灯全亮，第1、5盏灯闪烁，1秒后熄灭即进入睡眠模式。
+				</div>
+			</div>
+
+			<div class="details">
+				<div class="summary">如何切换到运动模式？</div>
+				<div class="details-content">连续快速敲击手环芯片直到振动，看到5盏灯全亮，走马灯1次，即进入运动模式。
+				</div>
+			</div>
+			<div class="details">
+				<div class="summary">如何切换到运动模式？</div>
+				<div class="details-content">连续快速敲击手环芯片直到振动，看到5盏灯全亮，走马灯1次，即进入运动模式。
+				</div>
+			</div>
+			<div class="details">
+				<div class="summary">如何切换到运动模式？</div>
+				<div class="details-content">连续快速敲击手环芯片直到振动，看到5盏灯全亮，走马灯1次，即进入运动模式。
+				</div>
+			</div>
+			<div class="details">
+				<div class="summary">如何切换到运动模式？</div>
+				<div class="details-content">连续快速敲击手环芯片直到振动，看到5盏灯全亮，走马灯1次，即进入运动模式。
+				</div>
+			</div>
+			<div class="details">
+				<div class="summary">如何切换到运动模式？</div>
+				<div class="details-content">连续快速敲击手环芯片直到振动，看到5盏灯全亮，走马灯1次，即进入运动模式。
+				</div>
+			</div>
+			<div class="details">
+				<div class="summary">如何切换到运动模式？</div>
+				<div class="details-content">连续快速敲击手环芯片直到振动，看到5盏灯全亮，走马灯1次，即进入运动模式。
+				</div>
+			</div>
+			<div class="details">
+				<div class="summary">如何切换到运动模式？</div>
+				<div class="details-content">连续快速敲击手环芯片直到振动，看到5盏灯全亮，走马灯1次，即进入运动模式。
+				</div>
+			</div>
+			<div class="details">
+				<div class="summary">如何切换到运动模式？</div>
+				<div class="details-content">连续快速敲击手环芯片直到振动，看到5盏灯全亮，走马灯1次，即进入运动模式。
+				</div>
+			</div>
+			<div class="details">
+				<div class="summary">如何切换到运动模式？</div>
+				<div class="details-content">连续快速敲击手环芯片直到振动，看到5盏灯全亮，走马灯1次，即进入运动模式。
+				</div>
+			</div>
+			<div class="details">
+				<div class="summary">如何切换到运动模式？</div>
+				<div class="details-content">连续快速敲击手环芯片直到振动，看到5盏灯全亮，走马灯1次，即进入运动模式。
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+
+</html>
