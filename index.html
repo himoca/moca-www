@@ -310,6 +310,24 @@
 				padding: 0;
 				border: 0;
 			}
+
+			.safe-logo {
+				position: absolute;
+				left: 10px;
+				top: 10px;
+				width: 200px;
+				height: 200px;
+				z-index: 100;
+			}
+
+			.safe-logo a {
+				display: block;
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
 			@media all and (max-width: 1100px) {
 				.left_img {
 					width: 168px;
@@ -446,6 +464,24 @@
 					width: 1100px;
 					height: 619px;
 				}
+
+				.safe-logo {
+					position: absolute;
+					left: 10px;
+					top: 10px;
+					width: 200px;
+					height: 200px;
+					z-index: 100;
+				}
+
+				.safe-logo a {
+					display: block;
+					width: 200px;
+					height: 200px;
+					position: absolute;
+					left: 0;
+					top: 0;
+				}
 			}
 		</style>
 	</head>
@@ -480,7 +516,49 @@
 			<img src="img/ii_55.png" class="z1" />
 			<img src="img/ss.png" class="z2" />
 		</div>
+		<div class="safe-logo" id="safelogo">
+			<img alt="" src="img/logo_0429.jpg" width="100%">
+			<a href="http://bj429.com.cn/"></a>
+		</div>
 	</body>
+	<script>
+		function safeMove(){
+			//写入
+			var oneInner = document.getElementById('safelogo');
+			//定时器
+			var a1a = setInterval(moves,100);
+			//函数
+			var x = 10;
+			var y = 10;
+			function moves(){
+				var tops = oneInner.offsetTop;
+				var lefts = oneInner.offsetLeft;
+				if (lefts>=document.documentElement.clientWidth-oneInner.offsetWidth||lefts<=0)
+				{
+					x=-x
+				}
+				if (tops>=document.documentElement.clientHeight-oneInner.offsetHeight||tops<=0)
+				{
+					y=-y
+				}
+
+				tops+=y;
+				lefts+=x;
+				oneInner.style.top=tops+"px";
+				oneInner.style.left=lefts+"px";
+			}
+			//悬停停止
+			oneInner.onmouseover=function(){
+				clearInterval(a1a);
+			};
+			//放手继续运动
+			oneInner.onmouseout=function(){
+				a1a =setInterval(moves,100);
+			};
+		}
+
+		safeMove();
+	</script>
 	<script>
 		var zhongjian = document.getElementById("zhongjian");
 		var center = document.getElementById("center");
