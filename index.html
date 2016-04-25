@@ -313,8 +313,8 @@
 
 			.safe-logo {
 				position: absolute;
-				left: 10px;
-				top: 10px;
+				left: 15px;
+				top: 15px;
 				width: 200px;
 				height: 200px;
 				z-index: 100;
@@ -467,8 +467,8 @@
 
 				.safe-logo {
 					position: absolute;
-					left: 10px;
-					top: 10px;
+					left: 15px;
+					top: 15px;
 					width: 200px;
 					height: 200px;
 					z-index: 100;
@@ -535,11 +535,11 @@
 				var lefts = oneInner.offsetLeft;
 				if (lefts>=document.documentElement.clientWidth-oneInner.offsetWidth||lefts<=0)
 				{
-					x=-x
+					x=-x;
 				}
 				if (tops>=document.documentElement.clientHeight-oneInner.offsetHeight||tops<=0)
 				{
-					y=-y
+					y=-y;
 				}
 
 				tops+=y;
@@ -557,7 +557,7 @@
 			};
 		}
 
-		safeMove();
+		setTimeout(function(){safeMove();},100);
 	</script>
 	<script>
 		var zhongjian = document.getElementById("zhongjian");
