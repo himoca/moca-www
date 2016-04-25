@@ -313,8 +313,8 @@
 
 			.safe-logo {
 				position: absolute;
-				left: 15px;
-				top: 15px;
+				left: 10px;
+				top: 10px;
 				width: 200px;
 				height: 200px;
 				z-index: 100;
@@ -467,8 +467,8 @@
 
 				.safe-logo {
 					position: absolute;
-					left: 15px;
-					top: 15px;
+					left: 10px;
+					top: 10px;
 					width: 200px;
 					height: 200px;
 					z-index: 100;
@@ -522,6 +522,15 @@
 		</div>
 	</body>
 	<script>
+		var zhongjian = document.getElementById("zhongjian");
+		var center = document.getElementById("center");
+		function closeLeft2() {
+			center.style.display = "none";
+		}
+		function shows(url) {
+			center.style.display = "block";
+			document.getElementById("iFrame").src = url;
+		}
 		function safeMove(){
 			//写入
 			var oneInner = document.getElementById('safelogo');
@@ -556,21 +565,9 @@
 				a1a =setInterval(moves,100);
 			};
 		}
-
-		setTimeout(function(){safeMove();},100);
-	</script>
-	<script>
-		var zhongjian = document.getElementById("zhongjian");
-		var center = document.getElementById("center");
-		function closeLeft2() {
-			center.style.display = "none";
-		}
-		function shows(url) {
-			center.style.display = "block";
-			document.getElementById("iFrame").src = url;
-		}
 		window.onload = function() {
 			document.getElementById("body").style.display = "block";
+			safeMove();
 			setTimeout(function() {
 				var ditu = document.getElementById("ditu");
 				ditu.className = ditu.className + " " + "dong"
